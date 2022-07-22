@@ -1,7 +1,7 @@
 package = "redrex"
 version = "0.1.0"
 source = {
-   url = "git+https://github.com/rexyrex/redrex"
+   url = "git+https://github.com/rexyrex/kong_plugin_redrex"
 }
 description = {
    homepage = "Kong API Gateway middleware plugin for redirect purposes.",
