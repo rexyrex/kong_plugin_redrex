@@ -22,6 +22,7 @@ function RedirectHandler:access(conf)
     local status_code = conf.status_code
     local redirect_url = conf.redirect_url
 	ngx.log("access log")
+	kong.log.debug("saying hi from access handler!!")
 	
     return ngx.redirect("https://google.com", status_code)
 end
