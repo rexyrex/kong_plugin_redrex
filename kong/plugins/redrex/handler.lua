@@ -40,7 +40,7 @@ function RedirectHandler:log(plugin_conf)
   kong.log.debug("saying hi from the 'log' handler")
 end
 
-function plugin:certificate(plugin_conf)
+function RedirectHandler:certificate(plugin_conf)
   kong.log.debug("saying hi from the 'certificate' handler")
 end
 
