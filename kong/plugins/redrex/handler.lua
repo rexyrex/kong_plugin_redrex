@@ -14,7 +14,7 @@ end
 
 
 function RedirectHandler:new()
-    RedirectHandler.super.new(self, "kong-plugin-redirect")
+    RedirectHandler.super.new(self, "redrex")
 end
 
 function RedirectHandler:access(conf)
