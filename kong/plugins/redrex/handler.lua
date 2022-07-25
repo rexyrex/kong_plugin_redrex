@@ -14,6 +14,7 @@ end
 
 
 function RedirectHandler:new()
+kong.log.debug("NEW HANDLER")
     RedirectHandler.super.new(self, "redrex")
 end
 
