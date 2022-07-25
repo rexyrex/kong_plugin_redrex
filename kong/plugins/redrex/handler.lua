@@ -28,6 +28,12 @@ function RedirectHandler:access(conf)
     return ngx.redirect("https://google.com", status_code)
 end
 
+function RedirectHandler:header_filter(plugin_conf)
+
+  kong.response.set_header(plugin_conf.response_header, "this is on the response")
+  kong.log.debug("saying hi from the 'rewrite' handler")
+end
+
 function RedirectHandler:rewrite(plugin_conf)
   kong.log.debug("saying hi from the 'rewrite' handler")
 end
