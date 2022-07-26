@@ -23,7 +23,7 @@ end
 
 function RedirectHandler:access(conf)
 	kong.log.debug("saying hi from access handler!!")
-    RedirectHandler.super.access(self)
+    -- RedirectHandler.super.access(self)
     local status_code = conf.status_code
     local redirect_url = conf.redirect_url
 	
