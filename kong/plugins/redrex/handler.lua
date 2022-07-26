@@ -10,12 +10,12 @@ function RedirectHandler:init_worker()
 end
 
 
---[=====[ 
+
 function RedirectHandler:new()
 kong.log.debug("NEW HANDLER")
     RedirectHandler.super.new(self, "redrex")
 end
---]=====]
+
 
 function RedirectHandler:access(conf)
 	kong.log.debug("saying hi from access handler!!")
