@@ -2,8 +2,8 @@ local BasePlugin = require "kong.plugins.base_plugin"
 
 local RedirectHandler = BasePlugin:extend()
 
-RedirectHandler.PRIORITY = 999
-RedirectHandler.VERSION = "0.1.0"
+RedirectHandler.PRIORITY = 10
+RedirectHandler.VERSION = "1.0.0"
 
 function RedirectHandler:init_worker()
 
@@ -12,18 +12,19 @@ function RedirectHandler:init_worker()
 end
 
 
-
+--[=====[ 
 function RedirectHandler:new()
 kong.log.debug("NEW HANDLER")
     RedirectHandler.super.new(self, "redrex")
 end
+--]=====]
 
 function RedirectHandler:access(conf)
+	kong.log.debug("saying hi from access handler!!")
     RedirectHandler.super.access(self)
     local status_code = conf.status_code
     local redirect_url = conf.redirect_url
-	ngx.log("access log")
-	kong.log.debug("saying hi from access handler!!")
+	
 	kong.log.debug(redirect_url)
 	
     return ngx.redirect("https://google.com", status_code)
