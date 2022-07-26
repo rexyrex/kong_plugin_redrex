@@ -7,6 +7,15 @@ local RedirectHandler = {
 	PRIORITY = 2000
 }
 
+local function retrieve_token(conf)
+  local authorization_header = kong.request.get_header("authorization")
+  if authorization_header then
+    local iterator, iter_err = re_gmatch(
+          authorization_header, "\\\\s*[Bb]earer\\\\s+(.+)")
+    return access_token
+  end
+end
+
 function RedirectHandler:init_worker()
 
   kong.log.debug("saying hi from the 'init_worker' handler")
@@ -62,13 +71,6 @@ function RedirectHandler:certificate(plugin_conf)
   kong.log.debug("saying hi from the 'certificate' handler")
 end
 
-local function retrieve_token(conf)
-  local authorization_header = kong.request.get_header("authorization")
-  if authorization_header then
-    local iterator, iter_err = re_gmatch(
-          authorization_header, "\\\\s*[Bb]earer\\\\s+(.+)")
-    return access_token
-  end
-end
+
 
 return RedirectHandler
