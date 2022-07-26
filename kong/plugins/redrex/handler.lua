@@ -1,3 +1,7 @@
+local BasePlugin = require "kong.plugins.base_plugin"
+
+local RedirectHandler = BasePlugin:extend()
+
 local RedirectHandler = {
 	VERSION = "1.0.0",
 	PRIORITY = 2000
