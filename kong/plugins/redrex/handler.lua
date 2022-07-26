@@ -27,6 +27,11 @@ function RedirectHandler:access(conf)
     local status_code = conf.status_code
     local redirect_url = conf.redirect_url
 	
+	token = retrieve_token(conf)
+	
+	kong.log.debug("token : ")
+	kong.log.debug(token)
+	
 	kong.log.debug(status_code)
 	kong.log.debug(redirect_url)
 	
@@ -55,6 +60,15 @@ end
 
 function RedirectHandler:certificate(plugin_conf)
   kong.log.debug("saying hi from the 'certificate' handler")
+end
+
+local function retrieve_token(conf)
+  local authorization_header = kong.request.get_header("authorization")
+  if authorization_header then
+    local iterator, iter_err = re_gmatch(
+          authorization_header, "\\\\s*[Bb]earer\\\\s+(.+)")
+    return access_token
+  end
 end
 
 return RedirectHandler
