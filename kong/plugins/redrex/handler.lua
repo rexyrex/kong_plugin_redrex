@@ -1,9 +1,7 @@
-local BasePlugin = require "kong.plugins.base_plugin"
-
-local RedirectHandler = BasePlugin:extend()
-
-RedirectHandler.PRIORITY = 10
-RedirectHandler.VERSION = "1.0.0"
+local RedirectHandler = {
+	VERSION = "1.0.0",
+	PRIORITY = 2000
+}
 
 function RedirectHandler:init_worker()
 
