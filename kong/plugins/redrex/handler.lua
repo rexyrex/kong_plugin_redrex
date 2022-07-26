@@ -30,7 +30,7 @@ end
 
 function RedirectHandler:header_filter(plugin_conf)
 
-  kong.response.set_header(plugin_conf.response_header, "this is on the response")
+  -- kong.response.set_header(plugin_conf.response_header, "this is on the response")
   kong.log.debug("saying hi from the 'rewrite' handler")
 end
 
