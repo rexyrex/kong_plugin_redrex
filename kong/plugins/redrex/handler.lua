@@ -54,7 +54,7 @@ function RedirectHandler:access(conf)
 	kong.log.debug("res: "..res)
 	
 	-- token = retrieve_token(conf)
-	kong.log.debug("token : "..token)
+	-- kong.log.debug("token : "..token)
 	kong.log.debug(status_code)
 	kong.log.debug(redirect_url)
 	
