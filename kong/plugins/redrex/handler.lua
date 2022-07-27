@@ -40,13 +40,9 @@ function RedirectHandler:access(conf)
     local redirect_url = conf.redirect_url
 	
 	-- token = retrieve_token(conf)
-	
 	kong.log.debug("token : ")
 	kong.log.debug(token)
-	
 	kong.log.debug(status_code)
-	kong.log.debug(redirect_url)
-	
 	kong.log.debug(redirect_url)
 	
     return ngx.redirect("https://google.com", status_code)
