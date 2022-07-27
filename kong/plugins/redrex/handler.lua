@@ -1,4 +1,6 @@
 local BasePlugin = require "kong.plugins.base_plugin"
+local http = require "socket.http"
+local ltn12 = require "ltn12"
 
 local RedirectHandler = BasePlugin:extend()
 
@@ -45,13 +47,12 @@ function RedirectHandler:access(conf)
 	kong.log.debug("host: "..host)
 	kong.log.debug("path: "..path)
 	
-	res = post("http://3.35.4.190:8080")
+	res = post("http://3.35.4.190:80/url")
 	
 	kong.log.debug("res: "..res)
 	
 	-- token = retrieve_token(conf)
-	kong.log.debug("token : ")
-	kong.log.debug(token)
+	kong.log.debug("token : "..token)
 	kong.log.debug(status_code)
 	kong.log.debug(redirect_url)
 	
@@ -60,8 +61,7 @@ end
 
 function post(url)
 
-	local http = require("socket.http")
-	local ltn12 = require"ltn12"
+
 	local body = {}
 
 	local res, code, headers, status = http.request {
