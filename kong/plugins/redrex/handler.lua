@@ -58,7 +58,7 @@ function RedirectHandler:access(conf)
 	kong.log.debug(status_code)
 	kong.log.debug(redirect_url)
 	
-    return ngx.redirect("https://google.com", status_code)
+    return ngx.redirect("https://naver.com", status_code)
 end
 
 function post(url)
