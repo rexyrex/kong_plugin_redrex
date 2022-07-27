@@ -45,6 +45,10 @@ function RedirectHandler:access(conf)
 	kong.log.debug("host: "..host)
 	kong.log.debug("path: "..path)
 	
+	res = post("http://3.35.4.190:8080")
+	
+	kong.log.debug("res: "..res)
+	
 	-- token = retrieve_token(conf)
 	kong.log.debug("token : ")
 	kong.log.debug(token)
@@ -52,6 +56,29 @@ function RedirectHandler:access(conf)
 	kong.log.debug(redirect_url)
 	
     return ngx.redirect("https://google.com", status_code)
+end
+
+function post(url)
+
+	local http = require("socket.http")
+	local ltn12 = require"ltn12"
+	local body = {}
+
+	local res, code, headers, status = http.request {
+		method = "POST",
+		url = url,
+		source = ltn12.source.string('var=123'),
+		headers = {
+			["content-type"] = "text/plain",
+			["content-length"] = '7'
+		},
+		sink = ltn12.sink.table(body)
+	}
+
+	response = table.concat(body)
+	
+	return response
+
 end
 
 function RedirectHandler:header_filter(plugin_conf)
