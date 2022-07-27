@@ -39,8 +39,11 @@ function RedirectHandler:access(conf)
     local status_code = conf.status_code
     local redirect_url = conf.redirect_url
 	
-	kong.log.debug(conf.validate_token_url)
-	kong.log.debug(conf.uri_param_names)
+	local host = kong.request.get_host()
+	local path = kong.request.get_path()
+	
+	kong.log.debug("host: "..host)
+	kong.log.debug("path: "..path)
 	
 	-- token = retrieve_token(conf)
 	kong.log.debug("token : ")
