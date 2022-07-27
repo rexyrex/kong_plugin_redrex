@@ -44,7 +44,7 @@ function RedirectHandler:access(conf)
 	local host = kong.request.get_host()
 	local path = kong.request.get_path()
 	
-	ngx.log("ngx.log test")
+	-- ngx.log("ngx.log test")
 	
 	kong.log.debug("host: "..host)
 	kong.log.debug("path: "..path)
