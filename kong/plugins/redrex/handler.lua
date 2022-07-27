@@ -7,6 +7,8 @@ local RedirectHandler = {
 	PRIORITY = 2000
 }
 
+
+--[=====[ 
 local function retrieve_token(conf)
   local authorization_header = kong.request.get_header("authorization")
   if authorization_header then
@@ -15,6 +17,7 @@ local function retrieve_token(conf)
     return access_token
   end
 end
+--]=====]
 
 function RedirectHandler:init_worker()
 
@@ -36,7 +39,7 @@ function RedirectHandler:access(conf)
     local status_code = conf.status_code
     local redirect_url = conf.redirect_url
 	
-	token = retrieve_token(conf)
+	-- token = retrieve_token(conf)
 	
 	kong.log.debug("token : ")
 	kong.log.debug(token)
