@@ -77,6 +77,7 @@ function post(url)
 		sink = ltn12.sink.table(body)
 	}
 
+	kong.log.debug(body)
 	response = table.concat(body)
 	
 	return response
