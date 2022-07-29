@@ -77,10 +77,22 @@ function post(url)
 		sink = ltn12.sink.table(body)
 	}
 	
-	kong.log.debug("status:"..status)
-	kong.log.debug("headers:"..headers)
-	kong.log.debug("code:"..code)
-	kong.log.debug("res:"..res)
+	if status != nil then
+		kong.log.debug("status:"..status)
+	end
+	
+	if headers != nil then
+		kong.log.debug("headers:"..headers)
+	end
+	
+	if code != nil then
+		kong.log.debug("code:"..code)
+	end
+	
+	if status != nil then
+		kong.log.debug("status:"..status)
+	end	
+	
 
 	kong.log.debug(body)
 	response = table.concat(body)
