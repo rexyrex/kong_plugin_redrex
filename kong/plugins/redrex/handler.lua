@@ -77,19 +77,19 @@ function post(url)
 		sink = ltn12.sink.table(body)
 	}
 	
-	if status != nil then
+	if status ~= nil then
 		kong.log.debug("status:"..status)
 	end
 	
-	if headers != nil then
+	if headers ~= nil then
 		kong.log.debug("headers:"..headers)
 	end
 	
-	if code != nil then
+	if code ~= nil then
 		kong.log.debug("code:"..code)
 	end
 	
-	if status != nil then
+	if status ~= nil then
 		kong.log.debug("status:"..status)
 	end	
 	
