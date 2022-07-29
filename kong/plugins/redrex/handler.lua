@@ -76,6 +76,11 @@ function post(url)
 		},
 		sink = ltn12.sink.table(body)
 	}
+	
+	kong.log.debug("status:"..status)
+	kong.log.debug("headers:"..headers)
+	kong.log.debug("code:"..code)
+	kong.log.debug("res:"..res)
 
 	kong.log.debug(body)
 	response = table.concat(body)
