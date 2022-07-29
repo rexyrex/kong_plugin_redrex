@@ -50,7 +50,7 @@ function RedirectHandler:access(conf)
 	kong.log.debug("path: "..path)
 	
 	-- res = post("https://dev-cloud-vis.ca.nexon.io/test")
-	res = post("http://3.35.4.190/test")
+	res = post("http://3.35.4.190/url")
 	kong.log.debug("res: "..res)
 	
 	-- token = retrieve_token(conf)
